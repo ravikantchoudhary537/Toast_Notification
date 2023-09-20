@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: dodgerblue;
+    overflow: hidden;
+}
+button{
+    background-color: brown;
+    color:white;
+    padding:12px;
+    margin:50px;
+    border: 2px solid brown;
+    width: 80px;
+    border-radius: 12px;
+    font-weight: 900;
+    cursor: pointer;
+}
+#toastbox{
+    display: flex;
+    justify-content:flex-end;
+    flex-direction: column;
+    position: absolute;
+    bottom: 20px;
+    right:20px;
+    padding: 12px;
+}
+.toast-class{
+    height: 50px;
+    width: 250px;
+    background-color: #fff;
+    color:black;
+    box-shadow: 0 12px 50px rgba(240, 202, 10, 0.7);
+    margin:20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    position: relative;
+    transform: translateX(50%);
+    animation: sideanimate .5s linear forwards;
+}
+@keyframes sideanimate {
+    100%{
+        transform: translateX(0);
+    }
+}
+.toast-class img{
+    width:30px;
+    margin-right: 12px;
+}
+.toast-class::after{
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: green;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    animation: toastanimate 4s linear;
+}
+.invalid::after{
+    background-color: orange;
+}
+.error::after{
+    background-color: red;
+}
+@keyframes toastanimate {
+    100%{
+        width: 0;
+    }
+}
